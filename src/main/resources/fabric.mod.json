@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "reforged",
 	"version": "${version}",
-	"name": "Reforged",
+	"name": "Reforged Enchantments",
 	"description": "Adds new tool & combat enchantments to Minecraft: Lifesteal, Auto-Smelt, Vein Miner, Magnet and Auto-Replant.",
 	"authors": [
 		"Vilguax"
