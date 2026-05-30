@@ -1,0 +1,46 @@
+name: Sync Modrinth description
+
+# Pousse la description du projet (.github/PROJECT_DESCRIPTION.md) vers Modrinth
+# via l'API (PATCH /project/{id}, champ "body"). Source de verite = ce fichier.
+#
+# NOTE: CurseForge n'a PAS d'API d'edition de description -> a faire a la main
+# sur le site a chaque MAJ (CurseForge accepte le meme markdown, copier/coller
+# le contenu de .github/PROJECT_DESCRIPTION.md).
+#
+# Requiert: secret MODRINTH_TOKEN (PAT avec le scope "Write projects") et
+# variable MODRINTH_ID.
+
+on:
+  push:
+    branches: [ main ]
+    paths: [ '.github/PROJECT_DESCRIPTION.md' ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Patch Modrinth project body
+        env:
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+          MODRINTH_ID: ${{ vars.MODRINTH_ID }}
+        run: |
+          if [ -z "$MODRINTH_TOKEN" ] || [ -z "$MODRINTH_ID" ]; then
+            echo "MODRINTH_TOKEN ou MODRINTH_ID absent -> skip."
+            exit 0
+          fi
+          # Encode le markdown en chaine JSON et construit { "body": ... }
+          payload=$(jq -Rs '{ body: . }' < .github/PROJECT_DESCRIPTION.md)
+          echo "Patching Modrinth project $MODRINTH_ID ..."
+          curl -sS -X PATCH "https://api.modrinth.com/v2/project/${MODRINTH_ID}" \
+            -H "Authorization: ${MODRINTH_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -d "$payload" \
+            --fail-with-body -w "\nHTTP %{http_code}\n"
+          echo "Done."
