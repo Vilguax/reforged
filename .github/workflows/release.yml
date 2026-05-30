@@ -33,17 +33,15 @@ jobs:
           files: build/libs/*.jar
           generate_release_notes: true
 
-      # Publication CurseForge / Modrinth.
-      # Ajoute en repository: les secrets CURSEFORGE_TOKEN / MODRINTH_TOKEN et
-      # les variables CURSEFORGE_ID / MODRINTH_ID. mc-publish saute toute
-      # plateforme dont le token ou l'id est absent.
-      - name: Publish to CurseForge / Modrinth
+      # Publication CurseForge.
+      # Repository secret: CURSEFORGE_TOKEN (token d'upload du compte auteur).
+      # Repository variable: CURSEFORGE_ID (id numerique du projet CurseForge).
+      # Pour ajouter Modrinth plus tard: remets modrinth-id / modrinth-token.
+      - name: Publish to CurseForge
         uses: Kir-Antipov/mc-publish@v3.3
         with:
           curseforge-id: ${{ vars.CURSEFORGE_ID }}
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-          modrinth-id: ${{ vars.MODRINTH_ID }}
-          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
           files: build/libs/!(*-sources|*-dev|*-shadow).jar
           name: Reforged ${{ github.ref_name }}
           version: ${{ github.ref_name }}
