@@ -1,0 +1,12 @@
+{
+	"enchantment.reforged.lifesteal": "Vol de vie",
+	"enchantment.reforged.lifesteal.desc": "Vous soigne d'une partie des degats infliges.",
+	"enchantment.reforged.auto_smelt": "Fonte automatique",
+	"enchantment.reforged.auto_smelt.desc": "Fond les blocs mines au moment ou ils tombent.",
+	"enchantment.reforged.vein_miner": "Mineur de veine",
+	"enchantment.reforged.vein_miner.desc": "Mine les minerais connectes d'un seul coup.",
+	"enchantment.reforged.magnet": "Aimant",
+	"enchantment.reforged.magnet.desc": "Envoie ce que tu mines directement dans l'inventaire.",
+	"enchantment.reforged.auto_replant": "Replantation auto",
+	"enchantment.reforged.auto_replant.desc": "Replante les cultures mures recoltees, en utilisant une graine de l'inventaire."
+}

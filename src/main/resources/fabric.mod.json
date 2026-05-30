@@ -1,0 +1,33 @@
+{
+	"schemaVersion": 1,
+	"id": "reforged",
+	"version": "${version}",
+	"name": "Reforged",
+	"description": "Adds new tool & combat enchantments to Minecraft: Lifesteal, Auto-Smelt, Vein Miner, Magnet and Auto-Replant.",
+	"authors": [
+		"vilguax"
+	],
+	"contact": {
+		"homepage": "https://github.com/vilguax/reforged",
+		"sources": "https://github.com/vilguax/reforged",
+		"issues": "https://github.com/vilguax/reforged/issues"
+	},
+	"license": "MIT",
+	"icon": "assets/reforged/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"io.github.vilguax.reforged.Reforged"
+		]
+	},
+	"mixins": [
+		"reforged.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {}
+}

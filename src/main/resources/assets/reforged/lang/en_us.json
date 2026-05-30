@@ -1,0 +1,12 @@
+{
+	"enchantment.reforged.lifesteal": "Lifesteal",
+	"enchantment.reforged.lifesteal.desc": "Heals you for a portion of the damage you deal.",
+	"enchantment.reforged.auto_smelt": "Auto-Smelt",
+	"enchantment.reforged.auto_smelt.desc": "Smelts mined blocks as they drop.",
+	"enchantment.reforged.vein_miner": "Vein Miner",
+	"enchantment.reforged.vein_miner.desc": "Mines connected ore blocks in one go.",
+	"enchantment.reforged.magnet": "Magnet",
+	"enchantment.reforged.magnet.desc": "Sends what you mine straight to your inventory.",
+	"enchantment.reforged.auto_replant": "Auto-Replant",
+	"enchantment.reforged.auto_replant.desc": "Replants mature crops you harvest, using a seed from your inventory."
+}

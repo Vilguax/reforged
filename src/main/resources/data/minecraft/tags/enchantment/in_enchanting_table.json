@@ -1,0 +1,10 @@
+{
+	"replace": false,
+	"values": [
+		"reforged:lifesteal",
+		"reforged:auto_smelt",
+		"reforged:vein_miner",
+		"reforged:magnet",
+		"reforged:auto_replant"
+	]
+}
