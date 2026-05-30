@@ -3,7 +3,7 @@
 	"id": "reforged",
 	"version": "${version}",
 	"name": "Reforged Enchantments",
-	"description": "Adds new tool & combat enchantments to Minecraft: Lifesteal, Auto-Smelt, Vein Miner, Magnet and Auto-Replant.",
+	"description": "Adds new tool, combat & mobility enchantments to Minecraft: Lifesteal, Auto-Smelt, Vein Miner, Magnet, Auto-Replant and Blink.",
 	"authors": [
 		"Vilguax"
 	],
@@ -18,6 +18,9 @@
 	"entrypoints": {
 		"main": [
 			"io.github.vilguax.reforged.Reforged"
+		],
+		"client": [
+			"io.github.vilguax.reforged.ReforgedClient"
 		]
 	},
 	"mixins": [

@@ -8,5 +8,7 @@
 	"enchantment.reforged.magnet": "Magnet",
 	"enchantment.reforged.magnet.desc": "Sends what you mine straight to your inventory.",
 	"enchantment.reforged.auto_replant": "Auto-Replant",
-	"enchantment.reforged.auto_replant.desc": "Replants mature crops you harvest, using a seed from your inventory."
+	"enchantment.reforged.auto_replant.desc": "Replants mature crops you harvest, using a seed from your inventory.",
+	"enchantment.reforged.blink": "Blink",
+	"enchantment.reforged.blink.desc": "Right-click to hurl your blade and teleport to where it lands. The sword stays in your hand."
 }

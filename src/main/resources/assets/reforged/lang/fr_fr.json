@@ -8,5 +8,7 @@
 	"enchantment.reforged.magnet": "Aimant",
 	"enchantment.reforged.magnet.desc": "Envoie ce que tu mines directement dans l'inventaire.",
 	"enchantment.reforged.auto_replant": "Replantation auto",
-	"enchantment.reforged.auto_replant.desc": "Replante les cultures mures recoltees, en utilisant une graine de l'inventaire."
+	"enchantment.reforged.auto_replant.desc": "Replante les cultures mures recoltees, en utilisant une graine de l'inventaire.",
+	"enchantment.reforged.blink": "Clignement",
+	"enchantment.reforged.blink.desc": "Clic droit : projetez votre lame et teleportez-vous a son point de chute. L'epee reste en main."
 }

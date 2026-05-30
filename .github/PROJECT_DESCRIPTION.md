@@ -11,6 +11,7 @@
 | **Vein Miner** | Mining tools | Breaks a connected vein of the same ore in one swing. Blocks mined double each level (2 → 4 → 8 → 16 → 32). Ores only — terrain stays safe. Bigger veins cost less durability per block. | V |
 | **Magnet** | Armor | Sends everything you mine, and the loot from mobs you kill, straight into your inventory. Overflow falls to the ground. | I |
 | **Auto-Replant** | Hoe | Replants the crop you harvest, paying the seed out of the harvest itself. Fully self-sustaining. | I |
+| **Blink** | Sword | Right-click to throw your blade like an ender pearl and teleport to where it lands. The sword stays in your hand; each throw costs one durability (respects Unbreaking). | I |
 
 ## They work together
 
@@ -25,4 +26,4 @@ The mining enchantments are built to combine. A pickaxe with **Vein Miner + Auto
 - Fabric API
 - Java 21
 
-All five enchantments appear in the enchanting table and as enchanted books, with costs balanced against vanilla. No commands or config — install and play.
+All six enchantments appear in the enchanting table and as enchanted books, with costs balanced against vanilla. No commands or config — install and play.

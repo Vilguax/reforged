@@ -22,6 +22,7 @@ public final class ModEnchantments {
 	public static final RegistryKey<Enchantment> VEIN_MINER = of("vein_miner");
 	public static final RegistryKey<Enchantment> MAGNET = of("magnet");
 	public static final RegistryKey<Enchantment> AUTO_REPLANT = of("auto_replant");
+	public static final RegistryKey<Enchantment> BLINK = of("blink");
 
 	private static RegistryKey<Enchantment> of(String name) {
 		return RegistryKey.of(RegistryKeys.ENCHANTMENT, Identifier.of(Reforged.MOD_ID, name));

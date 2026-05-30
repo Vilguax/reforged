@@ -14,6 +14,7 @@ Theme: **tools / mining quality-of-life.** Working enchantments:
 | Vein Miner  | Mining tools | Breaks connected ore blocks of the same type in one go. Total mined = 2^level (lvl 1 = 2 … lvl 5 = 32). Ores only (tag `#c:ores`). Durability cost is diminishing per extra block. | 5 |
 | Magnet      | Armor     | Sends mined-block drops and killed-mob loot straight to your inventory (overflow drops on the ground). | 1 |
 | Auto-Replant| Hoe       | Replants the crop you break (wheat/carrot/potato/beetroot), reserving one seed from the harvest before Auto-Smelt can cook it. | 1 |
+| Blink       | Sword     | Right-click to hurl your blade like an ender pearl; teleport to where it lands. The sword stays in hand and costs one durability per throw (respects Unbreaking), with a short cooldown. | 1 |
 
 The mining enchants **compose**: a hoe/pickaxe with Vein Miner + Auto-Smelt + Fortune, worn with a
 Magnet chestplate, will vein-mine a deposit, smelt every drop, and pull the ingots into your

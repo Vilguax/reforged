@@ -2,9 +2,11 @@ package io.github.vilguax.reforged;
 
 import io.github.vilguax.reforged.effect.AutoReplantHandler;
 import io.github.vilguax.reforged.effect.AutoSmeltHandler;
+import io.github.vilguax.reforged.effect.BlinkHandler;
 import io.github.vilguax.reforged.effect.LifestealHandler;
 import io.github.vilguax.reforged.effect.MagnetHandler;
 import io.github.vilguax.reforged.effect.VeinMinerHandler;
+import io.github.vilguax.reforged.entity.ModEntities;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +21,10 @@ public class Reforged implements ModInitializer {
 
 		// Les enchantements eux-memes sont definis en data (data/reforged/enchantment/*.json).
 		// Ici on branche uniquement la logique custom Java.
+		ModEntities.register();
+
 		LifestealHandler.register();
+		BlinkHandler.register();
 
 		// L'ordre compte : les handlers de minage planifient des taches differees
 		// (fin de tick) executees dans l'ordre d'enregistrement. Pipeline voulu :
