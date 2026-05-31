@@ -10,5 +10,11 @@
 	"enchantment.reforged.auto_replant": "Replantation auto",
 	"enchantment.reforged.auto_replant.desc": "Replante les cultures mures recoltees, en utilisant une graine de l'inventaire.",
 	"enchantment.reforged.blink": "Clignement",
-	"enchantment.reforged.blink.desc": "Clic droit : projetez votre lame et teleportez-vous a son point de chute. L'epee reste en main."
+	"enchantment.reforged.blink.desc": "Clic droit : projetez votre lame et teleportez-vous a son point de chute. L'epee reste en main.",
+	"enchantment.reforged.lumberjack": "Bucheron",
+	"enchantment.reforged.lumberjack.desc": "Abat les buches connectees d'un seul coup ; au niveau max, l'arbre entier tombe.",
+	"enchantment.reforged.tunneler": "Tunnelier",
+	"enchantment.reforged.tunneler.desc": "Creuse un plan de 3x3 a 5x5 d'un coup, sur une seule profondeur.",
+	"enchantment.reforged.reaper": "Faucheur",
+	"enchantment.reforged.reaper.desc": "Recolte toutes les cultures mures dans une zone de 3x3 a 5x5 autour du bloc casse."
 }

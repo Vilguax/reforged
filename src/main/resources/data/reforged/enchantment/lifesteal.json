@@ -4,7 +4,8 @@
 	},
 	"exclusive_set": [
 		"reforged:auto_smelt",
-		"reforged:vein_miner"
+		"reforged:vein_miner",
+		"reforged:lumberjack"
 	],
 	"supported_items": "#minecraft:enchantable/sharp_weapon",
 	"weight": 5,

@@ -1,6 +1,7 @@
 package io.github.vilguax.reforged.effect;
 
 import io.github.vilguax.reforged.ModEnchantments;
+import io.github.vilguax.reforged.util.DropScan;
 import io.github.vilguax.reforged.util.EnchantUtil;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.minecraft.entity.ExperienceOrbEntity;
@@ -42,7 +43,7 @@ public final class AutoSmeltHandler {
 			Box box = new Box(pos).expand(1.5);
 			serverWorld.getServer().execute(() -> {
 				List<ItemEntity> drops = serverWorld.getEntitiesByClass(ItemEntity.class, box,
-						entity -> entity.getItemAge() == 0);
+						DropScan::isFresh);
 				for (ItemEntity drop : drops) {
 					smeltDrop(serverWorld, drop);
 				}

@@ -10,5 +10,11 @@
 	"enchantment.reforged.auto_replant": "Auto-Replant",
 	"enchantment.reforged.auto_replant.desc": "Replants mature crops you harvest, using a seed from your inventory.",
 	"enchantment.reforged.blink": "Blink",
-	"enchantment.reforged.blink.desc": "Right-click to hurl your blade and teleport to where it lands. The sword stays in your hand."
+	"enchantment.reforged.blink.desc": "Right-click to hurl your blade and teleport to where it lands. The sword stays in your hand.",
+	"enchantment.reforged.lumberjack": "Lumberjack",
+	"enchantment.reforged.lumberjack.desc": "Fells connected logs in one chop; the top level takes down the whole tree.",
+	"enchantment.reforged.tunneler": "Tunneler",
+	"enchantment.reforged.tunneler.desc": "Mines a flat 3x3 to 5x5 face in one go, one block deep.",
+	"enchantment.reforged.reaper": "Reaper",
+	"enchantment.reforged.reaper.desc": "Harvests every mature crop in a 3x3 to 5x5 area around the one you break."
 }

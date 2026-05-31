@@ -1,6 +1,7 @@
 package io.github.vilguax.reforged.effect;
 
 import io.github.vilguax.reforged.ModEnchantments;
+import io.github.vilguax.reforged.util.DropScan;
 import io.github.vilguax.reforged.util.EnchantUtil;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
@@ -56,8 +57,7 @@ public final class MagnetHandler {
 	/** Differe a la fin du tick (les drops n'existent pas encore) puis ramasse les drops frais. */
 	private static void vacuum(ServerWorld world, PlayerEntity player, Box box) {
 		world.getServer().execute(() -> {
-			for (ItemEntity drop : world.getEntitiesByClass(ItemEntity.class, box,
-					entity -> entity.getItemAge() == 0)) {
+			for (ItemEntity drop : world.getEntitiesByClass(ItemEntity.class, box, DropScan::isFresh)) {
 				collect(player, drop);
 			}
 		});

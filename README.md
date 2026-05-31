@@ -11,10 +11,13 @@ Theme: **tools / mining quality-of-life.** Working enchantments:
 | ----------- | --------- | ------------------------------------------------------------ | --------- |
 | Lifesteal   | Sword/Axe | Heals 10% of damage dealt per level on each hit, plus a 1-heart-per-level burst on kill. Exclusive with the tool enchants below (weapon vs tool). | 3 |
 | Auto-Smelt  | Mining tools | Smelts mined drops as they fall (ore→ingot, sand→glass…) using real furnace recipes, grants smelting XP. Exclusive with Silk Touch; stacks with Fortune. | 1 |
-| Vein Miner  | Mining tools | Breaks connected ore blocks of the same type in one go. Total mined = 2^level (lvl 1 = 2 … lvl 5 = 32). Ores only (tag `#c:ores`). Durability cost is diminishing per extra block. | 5 |
+| Vein Miner  | Mining tools | Breaks connected ore blocks of the same type in one go. Total mined = 2^level (lvl 1 = 2 … lvl 5 = 32). Ores only (tag `#c:ores`). Costs 1 durability per extra block (respects Unbreaking). | 5 |
 | Magnet      | Armor     | Sends mined-block drops and killed-mob loot straight to your inventory (overflow drops on the ground). | 1 |
 | Auto-Replant| Hoe       | Replants the crop you break (wheat/carrot/potato/beetroot), reserving one seed from the harvest before Auto-Smelt can cook it. | 1 |
 | Blink       | Sword     | Right-click to hurl your blade like an ender pearl; teleport to where it lands. The sword stays in hand and costs one durability per throw (respects Unbreaking), with a short cooldown. | 1 |
+| Lumberjack  | Axe       | Fells connected logs (tag `#minecraft:logs`, 26-neighbour) in one chop. Per-level cap grows (6/12/24/48); at max level it takes down the whole tree. Costs 1 durability per extra block (respects Unbreaking). Exclusive with Lifesteal (weapon vs tool). | 5 |
+| Tunneler    | Pickaxe   | Breaks a flat plane perpendicular to the face you mine, one block deep: 3x3 / 4x4 / 5x5 per level. Pickaxe-mineable blocks only, skips bedrock. Costs 1 durability per extra block (respects Unbreaking). | 3 |
+| Reaper      | Hoe       | Harvests every mature crop in a horizontal 3x3 / 4x4 / 5x5 area around the one you break. With Auto-Replant it also replants each and reserves a seed per crop. | 3 |
 
 The mining enchants **compose**: a hoe/pickaxe with Vein Miner + Auto-Smelt + Fortune, worn with a
 Magnet chestplate, will vein-mine a deposit, smelt every drop, and pull the ingots into your
@@ -52,11 +55,18 @@ registered in Java — they are JSON files. Reforged splits responsibilities acc
   - `effect/AutoSmeltHandler` — listens to `PlayerBlockBreakEvents.AFTER`, then **defers to the end
     of the tick via `server.execute`** before scanning for fresh drops. This matters: the AFTER
     event fires *before* the block's item drops are spawned into the world, so scanning immediately
-    finds nothing. Deferring lets the drops exist; we filter to `getItemAge() == 0` to touch only
-    the just-dropped stacks, then run each through the smelting recipe.
+    finds nothing. Deferring lets the drops exist; we filter with `util/DropScan` (item age within a
+    few ticks) to touch only the just-dropped stacks, then run each through the smelting recipe.
   - `effect/VeinMinerHandler` — flood-fills connected same-type ores (26-neighbour) up to `2^level`
-    blocks, drops each via `Block.dropStacks` (Fortune-correct) **regrouped at the origin** so the
-    drops land in Auto-Smelt/Magnet's scan box and compose with them.
+    blocks; the breaking itself is delegated to `util/BulkBreaker`.
+  - `effect/LumberjackHandler` / `effect/TunnelerHandler` / `effect/ReaperHandler` — the axe/pickaxe/hoe
+    area enchants. Each collects the target positions (log flood-fill, mined-face plane, horizontal crop
+    plane) and hands them to `util/BulkBreaker`. Reaper, like Auto-Replant, also replants and reserves
+    seeds in a deferred task and is registered before Auto-Smelt.
+  - `util/BulkBreaker` — shared bulk breaking for the area enchants: drops every block via
+    `Block.dropStacks` (Fortune-correct) **regrouped at the origin** so they land in Auto-Smelt/Magnet's
+    scan box and compose, leaves XP on the ground, charges 1 durability per extra block (Unbreaking
+    applies), and guards against re-entrance.
   - `effect/MagnetHandler` — same deferred-scan pattern on block break, plus an `AFTER_DEATH` hook
     for mob loot; inserts fresh drops into the player's inventory.
   - `effect/AutoReplantHandler` — replants any broken crop and reserves one seed from the harvest

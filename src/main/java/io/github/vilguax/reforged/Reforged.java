@@ -4,7 +4,10 @@ import io.github.vilguax.reforged.effect.AutoReplantHandler;
 import io.github.vilguax.reforged.effect.AutoSmeltHandler;
 import io.github.vilguax.reforged.effect.BlinkHandler;
 import io.github.vilguax.reforged.effect.LifestealHandler;
+import io.github.vilguax.reforged.effect.LumberjackHandler;
 import io.github.vilguax.reforged.effect.MagnetHandler;
+import io.github.vilguax.reforged.effect.ReaperHandler;
+import io.github.vilguax.reforged.effect.TunnelerHandler;
 import io.github.vilguax.reforged.effect.VeinMinerHandler;
 import io.github.vilguax.reforged.entity.ModEntities;
 import net.fabricmc.api.ModInitializer;
@@ -28,10 +31,16 @@ public class Reforged implements ModInitializer {
 
 		// L'ordre compte : les handlers de minage planifient des taches differees
 		// (fin de tick) executees dans l'ordre d'enregistrement. Pipeline voulu :
-		//   Auto-Replant (reserve 1 graine) -> Auto-Smelt (fond le reste) -> Magnet (ramasse).
+		//   Auto-Replant / Faucheur (reservent les graines) -> Auto-Smelt (fond le
+		//   reste) -> Magnet (ramasse). Les casseurs de zone (Vein/Bucheron/Tunnelier)
+		//   cassent en synchrone et regroupent leurs drops a l'origine : ils composent
+		//   avec Auto-Smelt/Magnet quel que soit leur ordre d'enregistrement.
 		AutoReplantHandler.register();
+		ReaperHandler.register();
 		AutoSmeltHandler.register();
 		VeinMinerHandler.register();
+		LumberjackHandler.register();
+		TunnelerHandler.register();
 		MagnetHandler.register();
 	}
 }

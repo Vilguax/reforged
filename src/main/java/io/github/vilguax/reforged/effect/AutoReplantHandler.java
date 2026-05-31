@@ -69,7 +69,7 @@ public final class AutoReplantHandler {
 
 	private static void reserveSeedFromDrops(ServerWorld world, Box box, Item seedItem) {
 		for (ItemEntity drop : world.getEntitiesByClass(ItemEntity.class, box,
-				entity -> entity.getItemAge() == 0)) {
+				io.github.vilguax.reforged.util.DropScan::isFresh)) {
 			ItemStack stack = drop.getStack();
 			if (stack.isOf(seedItem)) {
 				stack.decrement(1);

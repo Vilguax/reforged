@@ -1,0 +1,20 @@
+{
+	"description": {
+		"translate": "enchantment.reforged.lumberjack"
+	},
+	"supported_items": "#reforged:axes",
+	"weight": 2,
+	"max_level": 5,
+	"max_cost": {
+		"base": 55,
+		"per_level_above_first": 8
+	},
+	"min_cost": {
+		"base": 15,
+		"per_level_above_first": 8
+	},
+	"anvil_cost": 4,
+	"slots": [
+		"mainhand"
+	]
+}
